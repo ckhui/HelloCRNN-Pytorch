@@ -6,13 +6,13 @@ def getImageListAndLabelList(txt):
     """
     with open(txt, 'r') as f:
         lines = f.readlines()
-    images = lines
+    images = [line.rstrip() for line in lines]
     labels = [line.split("_")[-1].replace(".jpg","") for line in lines]
     return images, labels
 
 
 if __name__ == "__main__":
-    txt = "/home/rnd/Documents/CRNN Training/dataset.txt"
+    txt = "/home/rnd/Documents/CRNN Training/train.txt"
     outputPath = "./data/dataset/"
 
     imageList, labelList =  getImageListAndLabelList(txt)
