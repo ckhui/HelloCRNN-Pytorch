@@ -17,3 +17,10 @@ python3 demo.py
 ```
 python3 createDataset.py
 ```
+
+```
+Errors:
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+TypeError: Won't implicitly convert Unicode to bytes; use .encode()
+fixed by migrate to python3
+```
