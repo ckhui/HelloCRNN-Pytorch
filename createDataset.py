@@ -1,11 +1,20 @@
 from tool.origin_createDataset import createDataset
 
-def generateDateset(imgList):
+def getImageListAndLabelList(txt):
     """
-        imgList: a txt file that contain ImagesFullPath and Label
+        txt: a txt file that contain ImagesFullPath and Label
     """
-    with open(imgList, 'r') as f:
+    with open(txt, 'r') as f:
         lines = f.readlines()
     images = lines
     labels = [line.split("_")[-1].replace(".jpg","") for line in lines]
-    createDataset()
+    return images, labels
+
+
+if __name__ == "__main__":
+    txt = "/home/rnd/Documents/CRNN Training/dataset.txt"
+    outputPath = "./data/dataset/"
+
+    imageList, labelList =  getImageListAndLabelList(txt)
+    createDataset(outputPath, imageList, labelList, checkValid=True)
+    pass
